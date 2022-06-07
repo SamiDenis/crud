@@ -71,7 +71,11 @@ app.use(express.static("public")); // serve files from public statically
 /////////////////////////////////////////////////////
 // Server Listener
 /////////////////////////////////////////////////////
+// ROUTES
 //////////////////////////////////////////////
+app.get('/', (req,res) => {
+    res.send("your server is running...better catch it!")
+})
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
