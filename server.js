@@ -2,7 +2,7 @@
 //IMPORT OUR DEPENDENCIES
 //////////////////////////
 
-require('.dotenv').config()
+require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
@@ -27,3 +27,26 @@ mongoose.connection
   .on("open", () => console.log("Connected to Mongoose"))
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error));
+
+  ////////////////////////////////////////////////
+// Our Models
+////////////////////////////////////////////////
+// pull schema and model from mongoose
+
+//BELOW IS THE SAME AS OTHER METHOD BELOW
+// const Schema = mongoose.Schema
+// const model = mongoose.model
+
+//SAME AS ^^^
+const { Schema, model } = mongoose;
+
+
+// make fruits schema
+const fruitsSchema = new Schema({
+  name: String,
+  color: String,
+  readyToEat: Boolean,
+});
+
+// make fruit model
+const Fruit = model("Fruit", fruitsSchema);
